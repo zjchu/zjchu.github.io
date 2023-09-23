@@ -24,11 +24,8 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-<<<<<<< HEAD
-=======
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
->>>>>>> 95ae330 (Initial commit)
 </head>
 <body>
 
@@ -39,10 +36,6 @@
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">CorrTalk: Correlation Learning in Diverse Facial Activity and Hierarchical Speech for 3D Animation</h1>
           <div class="is-size-5 publication-authors">
-<<<<<<< HEAD
-<!--             <h4 class="title is-4">CVPR 2023</h4> -->
-=======
->>>>>>> 95ae330 (Initial commit)
             <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
             <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
             <span class="author-block" >Xiaofen Xing<sup>1</sup>,</span>
@@ -60,11 +53,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-<<<<<<< HEAD
-                <a href="https://arxiv.org/pdf/2011.12948"
-=======
                 <a href=" "
->>>>>>> 95ae330 (Initial commit)
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -73,11 +62,7 @@
                 </a>
               </span>
               <span class="link-block">
-<<<<<<< HEAD
-                <a href="https://arxiv.org/abs/2011.12948"
-=======
                 <a href=" "
->>>>>>> 95ae330 (Initial commit)
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -87,11 +72,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-<<<<<<< HEAD
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-=======
                 <a href="#teaser"
->>>>>>> 95ae330 (Initial commit)
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -101,11 +82,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-<<<<<<< HEAD
-                <a href="https://github.com/google/nerfies"
-=======
                 <a href="https://github.com/zjchu/CorrTalk"
->>>>>>> 95ae330 (Initial commit)
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -113,13 +90,7 @@
                   <span>Code</span>
                   </a>
               </span>
-<<<<<<< HEAD
-
             </div>
-
-=======
-            </div>
->>>>>>> 95ae330 (Initial commit)
           </div>
         </div>
       </div>
@@ -134,30 +105,19 @@
   </div>
 
 
-<<<<<<< HEAD
-</section>
-      <!-- Paper video.--> 
-  <center><video width="900" height="900" controls><source src="video.mp4" type="video/mp4"></video></center>
-=======
 </section class="hero teaser">
       <!-- Paper video.--> 
   <center>
     <video id="teaser" autoplay loop controls playsinline height="900" width="900">
         <source src="./static/videos/demo.mp4" type="video/mp4">
     </video></center>
->>>>>>> 95ae330 (Initial commit)
   <h2 class="subtitle has-text-centered">
     <strong>CorrTalk</strong> can synthesize vivid 3D facial animations (mesh sequences) given audio snippets.
   </h2>
      <!--Paper video. -->
-<<<<<<< HEAD
-  
-<section class="section">
-=======
 
 
 <section class="section" id="Facial Activity Intensity">
->>>>>>> 95ae330 (Initial commit)
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -165,33 +125,6 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-<<<<<<< HEAD
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-=======
             Speech-driven 3D facial animation is a challenging cross-modal task that has attracted growing 
             research interest. Existing approaches often simplify the process by directly mapping single-level 
             speech features to the entire facial animation, thus overlooking the difference in facial activity 
@@ -209,7 +142,6 @@
           </p>
           <p>
             Extensive experiments and a user study have indicated that our method outperforms existing state-of-the-art techniques.
->>>>>>> 95ae330 (Initial commit)
           </p>
         </div>
       </div>
@@ -221,26 +153,6 @@
 
 <section class="section" id="Method">
   <div class="container is-max-desktop content">
-<<<<<<< HEAD
-    <h2 class="title">Method</h2>
-    <h3 class="title">Discrete Motion Prior Learning</h3>
-    <p>
-      CodeTalker first learns a discrete context-rich facial motion codebook 
-      by self-reconstruction learning over real facial motions.
-    </p>
-    <center><div><img src="1.png" width="400" height="500" alt="图片描述">
-    <img src="vocaset.gif" width="220" height="400" ></center>
-    <!-- <embed src="Fig1.pdf" width="500" height="700" type="application/pdf"> -->
-    <!-- <iframe src="Fig1.pdf" width="100%" height="800px"></iframe> -->
-
-
-    <h3 class="title">Speech-Driven Motion Synthesis</h3>
-    <p>
-      It then autoregressively synthesize facial motions through code query 
-      conditioned on both the speech signals and past motions.
-    </p>
-    <center><div><img src="2.png" ></center>
-=======
     
     <h2 class="title">Facial Activity Intensity</h2>
     <center><div><img src="./static/images/1.png" width="500" height="400" style="border-right:2px solid #ccc" >
@@ -273,7 +185,6 @@
     vice versa for weak movements.
     </p>
     
->>>>>>> 95ae330 (Initial commit)
   </div>
   
 </section>
@@ -281,17 +192,6 @@
 <section class="section" id="Comparison">
   <div class="container is-max-desktop content">
     <h2 class="title">Comparison</h2>
-<<<<<<< HEAD
-    
-    <p>
-      Visual comparisons of sampled facial motions animated by different methods 
-      on VOCA (left) and BIWI (right) dataset. The upper partition shows the facial 
-      animation conditioned on different speech parts, while the lower depicts the 
-      temporal statistics (mean and standard deviation) of adjacent-frame motion 
-      variations within a sequence.
-    </p>
-    <center><div><img src="3.png" ></center>
-=======
     <center><div><img src="./static/images/3.png" ></center>
     <p>
       Visual comparison of sampled facial animations generated by different 
@@ -301,7 +201,6 @@
       truth mean error.
     </p>
     
->>>>>>> 95ae330 (Initial commit)
   </div>
   
 </section>
