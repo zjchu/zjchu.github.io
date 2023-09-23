@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CorrTalk</title>
+  <link rel="icon" href="github-fill.png" sizes="16x16"><!-- 图标-->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+<<<<<<< HEAD
+=======
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+>>>>>>> 95ae330 (Initial commit)
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">CorrTalk: Correlation Learning in Diverse Facial Activity and Hierarchical Speech for 3D Animation</h1>
+          <div class="is-size-5 publication-authors">
+<<<<<<< HEAD
+<!--             <h4 class="title is-4">CVPR 2023</h4> -->
+=======
+>>>>>>> 95ae330 (Initial commit)
+            <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
+            <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
+            <span class="author-block" >Xiaofen Xing<sup>1</sup>,</span>
+            <span class="author-block" >Yilin Lan<sup>1</sup>,</span>
+            <span class="author-block" >Bolun Cai<sup>2</sup>,</span>
+            <span class="author-block" >Xiangmin Xu<sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>South China University of Technology,</span>
+            <span class="author-block"><sup>2</sup>ByteDance Inc</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+<<<<<<< HEAD
+                <a href="https://arxiv.org/pdf/2011.12948"
+=======
+                <a href=" "
+>>>>>>> 95ae330 (Initial commit)
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+<<<<<<< HEAD
+                <a href="https://arxiv.org/abs/2011.12948"
+=======
+                <a href=" "
+>>>>>>> 95ae330 (Initial commit)
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+<<<<<<< HEAD
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+=======
+                <a href="#teaser"
+>>>>>>> 95ae330 (Initial commit)
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+<<<<<<< HEAD
+                <a href="https://github.com/google/nerfies"
+=======
+                <a href="https://github.com/zjchu/CorrTalk"
+>>>>>>> 95ae330 (Initial commit)
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+<<<<<<< HEAD
+
+            </div>
+
+=======
+            </div>
+>>>>>>> 95ae330 (Initial commit)
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Paper video.  -->
+    <!-- <div class="columns is-centered has-text-centered">   
+        <div class="publication-video">
+          <center><video width="480" height="480" controls><source src="May1.mp4" type="video/mp4"></video></center>
+        </div>
+    </div> -->
+     <!-- Paper video. -->
+  </div>
+
+
+<<<<<<< HEAD
+</section>
+      <!-- Paper video.--> 
+  <center><video width="900" height="900" controls><source src="video.mp4" type="video/mp4"></video></center>
+=======
+</section class="hero teaser">
+      <!-- Paper video.--> 
+  <center>
+    <video id="teaser" autoplay loop controls playsinline height="900" width="900">
+        <source src="./static/videos/demo.mp4" type="video/mp4">
+    </video></center>
+>>>>>>> 95ae330 (Initial commit)
+  <h2 class="subtitle has-text-centered">
+    <strong>CorrTalk</strong> can synthesize vivid 3D facial animations (mesh sequences) given audio snippets.
+  </h2>
+     <!--Paper video. -->
+<<<<<<< HEAD
+  
+<section class="section">
+=======
+
+
+<section class="section" id="Facial Activity Intensity">
+>>>>>>> 95ae330 (Initial commit)
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+<<<<<<< HEAD
+            We present the first method capable of photorealistically reconstructing a non-rigidly
+            deforming scene using photos/videos captured casually from mobile phones.
+          </p>
+          <p>
+            Our approach augments neural radiance fields
+            (NeRF) by optimizing an
+            additional continuous volumetric deformation field that warps each observed point into a
+            canonical 5D NeRF.
+            We observe that these NeRF-like deformation fields are prone to local minima, and
+            propose a coarse-to-fine optimization method for coordinate-based models that allows for
+            more robust optimization.
+            By adapting principles from geometry processing and physical simulation to NeRF-like
+            models, we propose an elastic regularization of the deformation field that further
+            improves robustness.
+          </p>
+          <p>
+            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
+            photos/videos into deformable NeRF
+            models that allow for photorealistic renderings of the subject from arbitrary
+            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
+            using a
+            rig with two mobile phones that take time-synchronized photos, yielding train/validation
+            images of the same pose at different viewpoints. We show that our method faithfully
+            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
+            fidelity.
+=======
+            Speech-driven 3D facial animation is a challenging cross-modal task that has attracted growing 
+            research interest. Existing approaches often simplify the process by directly mapping single-level 
+            speech features to the entire facial animation, thus overlooking the difference in facial activity 
+            intensity across different regions. During speech activities, the mouth displays strong motions, 
+            while the forehead exhibits comparatively weak activity levels.
+          </p>
+          <p>
+            In this study, we propose a novel framework, CorrTalk, for speech-driven 3D facial animation, 
+            which learns the temporal correlation between hierarchical speech features and facial activity 
+            across distinct regions. To account for variation in the facial activities in different regions, 
+            we split facial activity into two categories, strong and weak, and construct a dual-branch decoder 
+            to synchronously synthesize  facial activities of different intensities. To accommodate separate decoding 
+            of each branch, we establish temporal correlation between speech representation and facial activity in 
+            different intensities via a weighted hierarchical speech feature encoder.
+          </p>
+          <p>
+            Extensive experiments and a user study have indicated that our method outperforms existing state-of-the-art techniques.
+>>>>>>> 95ae330 (Initial commit)
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section" id="Method">
+  <div class="container is-max-desktop content">
+<<<<<<< HEAD
+    <h2 class="title">Method</h2>
+    <h3 class="title">Discrete Motion Prior Learning</h3>
+    <p>
+      CodeTalker first learns a discrete context-rich facial motion codebook 
+      by self-reconstruction learning over real facial motions.
+    </p>
+    <center><div><img src="1.png" width="400" height="500" alt="图片描述">
+    <img src="vocaset.gif" width="220" height="400" ></center>
+    <!-- <embed src="Fig1.pdf" width="500" height="700" type="application/pdf"> -->
+    <!-- <iframe src="Fig1.pdf" width="100%" height="800px"></iframe> -->
+
+
+    <h3 class="title">Speech-Driven Motion Synthesis</h3>
+    <p>
+      It then autoregressively synthesize facial motions through code query 
+      conditioned on both the speech signals and past motions.
+    </p>
+    <center><div><img src="2.png" ></center>
+=======
+    
+    <h2 class="title">Facial Activity Intensity</h2>
+    <center><div><img src="./static/images/1.png" width="500" height="400" style="border-right:2px solid #ccc" >
+    <img src="./static/images/1.gif" width="280" height="400" ></center>
+   
+
+    <p>
+      CorrTalk first analyses differences in facial activity intensity cross distinct regions. 
+      Facial activity intensity is quantified using amplitude values within the fundamental band of the short-time Fourier transform(STFT).
+      <b > Left: </b> activity intesity of a vertex in mouth and forehead region within a motion sequence are shown in (a) and (c) 
+      (top row: \(L_{2}\) distance between vertices in the reference sequence and the neutral topology; 
+      bottom row:  STFT of the vertex displacements.). 
+      (b) represents the average facial activity intensity from the training data. 
+      <b> Right: </b> dynamics of facial activity intensity in a sequence. 
+    </p>
+
+
+    <h2 class="title">Method</h2>
+    <center><div><img src="./static/images/2.png" ></center>
+    <p>
+    Overview of the proposed CorrTalk. A novel driver framework for learning temporal correlations between 
+    hierarchical speech features and diverse facial  movements uses raw audio as input and generates a 
+    sequence of 3D facial animation. The design of acoustic feature extractor follows wavLM. 
+    The hierarchical speech encoder produces frame-, phoneme-, word- and utterance-level speech features, 
+    and calculates the importance weight of each level feature for strong and weak facial movements. 
+    A dual-branch decoder based on the intensity of facial activity synchronously generates strong and 
+    weak facial movements. After performing STFT of the vertex displacements from training data, 
+    learnable mask \(\mathbf{m}_t \in [0, 1] \) is initialised according to the absolute value of the amplitude 
+    in fundamental frequency band. \(\mathbf{m}_t (\cdot) \) close to 1 indicates strong facial movements and 
+    vice versa for weak movements.
+    </p>
+    
+>>>>>>> 95ae330 (Initial commit)
+  </div>
+  
+</section>
+
+<section class="section" id="Comparison">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Comparison</h2>
+<<<<<<< HEAD
+    
+    <p>
+      Visual comparisons of sampled facial motions animated by different methods 
+      on VOCA (left) and BIWI (right) dataset. The upper partition shows the facial 
+      animation conditioned on different speech parts, while the lower depicts the 
+      temporal statistics (mean and standard deviation) of adjacent-frame motion 
+      variations within a sequence.
+    </p>
+    <center><div><img src="3.png" ></center>
+=======
+    <center><div><img src="./static/images/3.png" ></center>
+    <p>
+      Visual comparison of sampled facial animations generated by different 
+      methods on VOCA-Test (left) and BIWI-Test-B (right). The top portion 
+      delineates facial animations associated with distinct speech content, 
+      while the bottom portion displays the synthetic sequence with ground 
+      truth mean error.
+    </p>
+    
+>>>>>>> 95ae330 (Initial commit)
+  </div>
+  
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
+            project page.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
