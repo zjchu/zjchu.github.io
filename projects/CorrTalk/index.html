@@ -34,7 +34,9 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">CorrTalk: Correlation Learning in Diverse Facial Activity and Hierarchical Speech for 3D Animation</h1>
+          <h1 class="title is-2 publication-title">
+            CorrTalk: Correlation Between Hierarchical Speech and Facial Activity Variances for 3D Animation
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
             <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
@@ -126,22 +128,25 @@
         <div class="content has-text-justified">
           <p>
             Speech-driven 3D facial animation is a challenging cross-modal task that has attracted growing 
-            research interest. Existing approaches often simplify the process by directly mapping single-level 
-            speech features to the entire facial animation, thus overlooking the difference in facial activity 
-            intensity across different regions. During speech activities, the mouth displays strong motions, 
-            while the forehead exhibits comparatively weak activity levels.
+            research interest. During speaking activities, the mouth displays strong motions, 
+            while the other facial regions typically demonstrate comparatively weak activity levels. 
+            Existing approaches often simplify the process by directly mapping single-level speech features 
+            to the entire facial animation, which overlook the differences in facial activity intensity leading 
+            to overly smoothed facial movements.
           </p>
           <p>
-            In this study, we propose a novel framework, CorrTalk, for speech-driven 3D facial animation, 
-            which learns the temporal correlation between hierarchical speech features and facial activity 
-            across distinct regions. To account for variation in the facial activities in different regions, 
-            we split facial activity into two categories, strong and weak, and construct a dual-branch decoder 
-            to synchronously synthesize  facial activities of different intensities. To accommodate separate decoding 
-            of each branch, we establish temporal correlation between speech representation and facial activity in 
-            different intensities via a weighted hierarchical speech feature encoder.
+            In this study, we propose a novel framework, CorrTalk, which effectively establishes the temporal 
+            correlation between hierarchical speech features and facial activities of different intensities across 
+            distinct regions. A novel facial activity intensity metric is defined to distinguish between strong and 
+            weak facial activity, obtained by computing the short-time Fourier transform of facial vertex displacements. 
+            Based on the variances in facial activity, we propose a dual-branch decoding framework to synchronously synthesize 
+            strong and weak facial activity, which guarantees wider intensity facial animation synthesis. Furthermore, 
+            a weighted hierarchical feature encoder is proposed to establish temporal correlation between hierarchical 
+            speech features and facial activity at different intensities, which ensures lip-sync and plausible facial expressions.
           </p>
           <p>
-            Extensive experiments and a user study have indicated that our method outperforms existing state-of-the-art techniques.
+            Extensive qualitatively and quantitatively experiments as well as a user study indicate that our 
+            CorrTalk outperforms existing state-of-the-art methods.
           </p>
         </div>
       </div>
@@ -173,16 +178,15 @@
     <h2 class="title">Method</h2>
     <center><div><img src="./static/images/2.png" ></center>
     <p>
-    Overview of the proposed CorrTalk. A novel driver framework for learning temporal correlations between 
-    hierarchical speech features and diverse facial  movements uses raw audio as input and generates a 
-    sequence of 3D facial animation. The design of acoustic feature extractor follows wavLM. 
-    The hierarchical speech encoder produces frame-, phoneme-, word- and utterance-level speech features, 
-    and calculates the importance weight of each level feature for strong and weak facial movements. 
-    A dual-branch decoder based on the intensity of facial activity synchronously generates strong and 
-    weak facial movements. After performing STFT of the vertex displacements from training data, 
-    learnable mask \(\mathbf{m}_t \in [0, 1] \) is initialised according to the absolute value of the amplitude 
-    in fundamental frequency band. \(\mathbf{m}_t (\cdot) \) close to 1 indicates strong facial movements and 
-    vice versa for weak movements.
+      Overview of the proposed CorrTalk. A novel framework for learning the temporal correlation between HSF and 
+      facial activities of different intensities uses raw audio as input and generates a sequence of 3D facial animation. 
+      The design of the acoustic feature extractor follows wavLM. The weighted hierarchical speech encoder produces frame-, 
+      phoneme-, word- and utterance-level speech features, and calculates the importance weight of each level of features 
+      for strong and weak facial movements. A dual-branch decoder based on the FAI synchronously generates strong and weak 
+      facial movements. After performing STFT of the vertex displacements from training data, a learnable 
+      mask \(\mathbf{m}_t \in [0, 1] \) is initialized according to the absolute value of the amplitude in 
+      fundamental frequency. \(\mathbf{m}_t (\cdot) \) close to 1 indicates strong facial movements and vice 
+      versa for weak movements.
     </p>
     
   </div>
@@ -194,11 +198,9 @@
     <h2 class="title">Comparison</h2>
     <center><div><img src="./static/images/3.png" ></center>
     <p>
-      Visual comparison of sampled facial animations generated by different 
-      methods on VOCA-Test (left) and BIWI-Test-B (right). The top portion 
-      delineates facial animations associated with distinct speech content, 
-      while the bottom portion displays the synthetic sequence with ground 
-      truth mean error.
+      Visual comparison of sampled facial animations generated by different methods on VOCA-Test (left) and 
+      BIWI-Test-B (right). The top portion delineates facial animations associated with distinct speech content. 
+      The bottom portion displays the synthetic sequence with ground truth mean error.
     </p>
     
   </div>
