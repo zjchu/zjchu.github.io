@@ -5,7 +5,7 @@
   <meta name="description"
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CorrTalk</title>
+  <title>AllTalk</title>
   <link rel="icon" href="github-fill.png" sizes="16x16"><!-- 图标-->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -35,20 +35,21 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">
-            CorrTalk: Correlation Between Hierarchical Speech and Facial Activity Variances for 3D Animation
+            Alleviating One-to-many Mapping in Talking Head Synthesis with Dynamic Adaptation Context and Style Adapter
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
             <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
             <span class="author-block" >Xiaofen Xing<sup>1</sup>,</span>
-            <span class="author-block" >Yilin Lan<sup>1</sup>,</span>
             <span class="author-block" >Bolun Cai<sup>2</sup>,</span>
+            <span class="author-block" >Shan He<sup>3</sup>,</span>
             <span class="author-block" >Xiangmin Xu<sup>1</sup>,</span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>South China University of Technology,</span>
-            <span class="author-block"><sup>2</sup>ByteDance Inc</span>
+            <span class="author-block"><sup>2</sup>ByteDance Inc,</span>
+            <span class="author-block"><sup>3</sup>iFlytek Research.</span>
           </div>
 
           <div class="column has-text-centered">
@@ -84,7 +85,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/zjchu/CorrTalk"
+                <a href="https://github.com/zjchu/AllTalk"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -97,13 +98,7 @@
         </div>
       </div>
     </div>
-      <!-- Paper video.  -->
-    <!-- <div class="columns is-centered has-text-centered">   
-        <div class="publication-video">
-          <center><video width="480" height="480" controls><source src="May1.mp4" type="video/mp4"></video></center>
-        </div>
-    </div> -->
-     <!-- Paper video. -->
+
   </div>
 
 
@@ -113,9 +108,7 @@
     <video id="teaser" autoplay loop controls playsinline height="900" width="900">
         <source src="./static/videos/demo.mp4" type="video/mp4">
     </video></center>
-  <h2 class="subtitle has-text-centered">
-    <strong>CorrTalk</strong> can synthesize vivid 3D facial animations (mesh sequences) given audio snippets.
-  </h2>
+
      <!--Paper video. -->
 
 
@@ -127,26 +120,25 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Speech-driven 3D facial animation is a challenging cross-modal task that has attracted growing 
-            research interest. During speaking activities, the mouth displays strong motions, 
-            while the other facial regions typically demonstrate comparatively weak activity levels. 
-            Existing approaches often simplify the process by directly mapping single-level speech features 
-            to the entire facial animation, which overlook the differences in facial activity intensity leading 
-            to overly smoothed facial movements.
+            Speech-driven talking head synthesis technology has made remarkable progress, but it still faces the challenge of 
+            the one-to-many pathological mapping. The challenge results in inaccurate lip movements, ambiguity in facial expressions, 
+            and a lack of coherence during transitions between facial movements. The phenomenon is primarily caused by: (1) for one speaker, 
+            the same phoneme corresponds to a wide range of mouth shapes and facial expressions due to contextual variations, and (2) 
+            for the same spoken content, different speakers exhibit diverse facial expressions as a result of unique speaking styles. 
           </p>
           <p>
-            In this study, we propose a novel framework, CorrTalk, which effectively establishes the temporal 
-            correlation between hierarchical speech features and facial activities of different intensities across 
-            distinct regions. A novel facial activity intensity metric is defined to distinguish between strong and 
-            weak facial activity, obtained by computing the short-time Fourier transform of facial vertex displacements. 
-            Based on the variances in facial activity, we propose a dual-branch decoding framework to synchronously synthesize 
-            strong and weak facial activity, which guarantees wider intensity facial animation synthesis. Furthermore, 
-            a weighted hierarchical feature encoder is proposed to establish temporal correlation between hierarchical 
-            speech features and facial activity at different intensities, which ensures lip-sync and plausible facial expressions.
+            In this work, we propose a novel framework, called AllTalk, to alleviate one-to-many pathological mapping, which enables more 
+            vivid and natural talking head. Specifically, considering the asymmetry and dynamic nature of mouth shapes' dependence on 
+            phoneme context, we propose a Dynamic Adaptive Context encoder to accurately capture the context around the phoneme and 
+            its dynamics, thereby reducing the ambiguity in mapping speech to facial movements. Moreover, to alleviate the uncertainty 
+            caused by individual stylistic differences, we propose a Style Adapter that expands a generic discrete motion space for 
+            target speaker. The Style Adapter not only effectively represents general facial motions but also captures the personalized 
+            nuances of facial movements. To further enhance the fidelity of output, we introduce a Dynamic Gaussian Renderer based on 
+            3D Gaussian Splatting, capable of producing stable and realistic rendering videos.
           </p>
           <p>
-            Extensive qualitatively and quantitatively experiments as well as a user study indicate that our 
-            CorrTalk outperforms existing state-of-the-art methods.
+            Extensive qualitative and quantitative experiments demonstrate that AllTalk surpasses existing state-of-the-art methods, 
+            providing an effective solution to the challenge of one-to-many mapping.
           </p>
         </div>
       </div>
@@ -159,52 +151,47 @@
 <section class="section" id="Method">
   <div class="container is-max-desktop content">
     
-    <h2 class="title">Facial Activity Intensity</h2>
-    <center><div><img src="./static/images/1.png" width="500" height="400" style="border-right:2px solid #ccc" >
-    <img src="./static/images/1.gif" width="280" height="400" ></center>
-   
-
-    <p>
-      CorrTalk first analyses differences in facial activity intensity cross distinct regions. 
-      Facial activity intensity is quantified using amplitude values within the fundamental band of the short-time Fourier transform(STFT).
-      <b > Left: </b> activity intesity of a vertex in mouth and forehead region within a motion sequence are shown in (a) and (c) 
-      (top row: \(L_{2}\) distance between vertices in the reference sequence and the neutral topology; 
-      bottom row:  STFT of the vertex displacements.). 
-      (b) represents the average facial activity intensity from the training data. 
-      <b> Right: </b> dynamics of facial activity intensity in a sequence. 
-    </p>
-
-
-    <h2 class="title">Method</h2>
-    <center><div><img src="./static/images/2.png" ></center>
-    <p>
-      Overview of the proposed CorrTalk. A novel framework for learning the temporal correlation between HSF and 
-      facial activities of different intensities uses raw audio as input and generates a sequence of 3D facial animation. 
-      The design of the acoustic feature extractor follows wavLM. The weighted hierarchical speech encoder produces frame-, 
-      phoneme-, word- and utterance-level speech features, and calculates the importance weight of each level of features 
-      for strong and weak facial movements. A dual-branch decoder based on the FAI synchronously generates strong and weak 
-      facial movements. After performing STFT of the vertex displacements from training data, a learnable 
-      mask \(\mathbf{m}_t \in [0, 1] \) is initialized according to the absolute value of the amplitude in 
-      fundamental frequency. \(\mathbf{m}_t (\cdot) \) close to 1 indicates strong facial movements and vice 
-      versa for weak movements.
-    </p>
-    
-  </div>
+    <h2 class="title">Examples of One-to-many Mapping</h2>
+    <center><div>
+      <!-- <img src="./static/images/Face_muscle.jpg" width="500" height="400" style="border-right:2px solid #ccc" > -->
+    <img src="./static/images/one-to-many-a.png" >
+    </center>
   
-</section>
+    <p class="content has-text-justified">
+      (a) For one speaker, one phoneme corresponds to multiple alternative mouth shapes due to complex contexts.
+    </p>
+
+
+    <center><div>
+      <!-- <img src="./static/images/Face_muscle.jpg" width="500" height="400" style="border-right:2px solid #ccc" > -->
+    <img src="./static/images/one-to-many-b.png" >
+    </center>
+
+    <p class="content has-text-justified">
+      (b) For the same phoneme whithin same context, different speakers exhibit distinct mouth shapes, reflecting their unique speaking styles.
+    </p>
+
+
+</section> -->
 
 <section class="section" id="Comparison">
   <div class="container is-max-desktop content">
     <h2 class="title">Comparison</h2>
-    <center><div><img src="./static/images/3.png" ></center>
-    <p>
-      Visual comparison of sampled facial animations generated by different methods on VOCA-Test (left) and 
-      BIWI-Test-B (right). The top portion delineates facial animations associated with distinct speech content. 
-      The bottom portion displays the synthetic sequence with ground truth mean error.
+    <center><div><img src="./static/images/result1.png" ></center>
+    <p class="content has-text-justified">
+      Comparative visualization of facial movements synthesized by different models for the same phoneme in difference 
+      contexts. “/æ/” exhibits distinct mouth shapes when pronouncing the words “sadness” and “and”, and “/m/” displays different
+      facial movements when articulating the words “tomorrow” and “meet”.
     </p>
+
+    <center><div><img src="./static/images/result2.png" ></center>
+      <p class="content has-text-justified">
+        Comparative visualization of facial movements synthesized by different models for the same spoken content cross
+        different speakers. For the same word, different speakers displayed diverse mouth shapes.
+      </p>
     
   </div>
-  
+ 
 </section>
 
 
