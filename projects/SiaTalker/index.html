@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiaTalker</title>
+  <link rel="icon" href="github-fill.png" sizes="16x16"><!-- 图标-->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            SiaTalker: Siamese Emotion Injection for Coarse-to-fine Speech-driven 3D Facial Animation
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
+            <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
+            <span class="author-block" >Xiaofen Xing<sup>1</sup>,</span>
+            <span class="author-block" >Yilin Lan<sup>1</sup>,</span>
+            <span class="author-block" >Bolun Cai<sup>2</sup>,</span>
+            <span class="author-block" >Xiangmin Xu<sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>South China University of Technology,</span>
+            <span class="author-block"><sup>2</sup>ByteDance Inc</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#teaser"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/blueblue-bubble/SiaTalker"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Paper video.  -->
+    <!-- <div class="columns is-centered has-text-centered">   
+        <div class="publication-video">
+          <center><video width="480" height="480" controls><source src="May1.mp4" type="video/mp4"></video></center>
+        </div>
+    </div> -->
+     <!-- Paper video. -->
+  </div>
+
+
+</section class="hero teaser">
+      <!-- Paper video.--> 
+  <center>
+    <video id="teaser" autoplay loop controls playsinline height="900" width="900">
+        <source src="./static/videos/demo.mp4" type="video/mp4">
+    </video></center>
+  <h2 class="subtitle has-text-centered">
+    <strong>SiaTalker</strong> can synthesize vivid 3D facial animations (mesh sequences) given audio snippets.
+  </h2>
+     <!--Paper video. -->
+
+
+<section class="section" id="Facial Activity Intensity">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            During communication, people inadvertently express genuine emotions through facial animations, 
+            with emotion constantly fluctuating throughout the conversation. Existing speech-driven works 
+            predominantly rely on sentence-level coarse-grained emotion labels to impart emotional expression 
+            information, thereby neglecting the dynamic evolution of emotional expression. 
+          </p>
+          <p>
+            How to make 3D talking heads articulate fluently while adeptly expressing the mood fluctuations 
+            is the problem addressed by our work. We propose a framework, named SiaTalker, which exquisitely 
+            refines emotions of facial animations from coarse-grained levels to dual-perspective interactive 
+            fine-grained levels, resulting in highly coordinated and fluid emotional expressions. Specially, 
+            we propose a coarse-to-fine dual granularity fusion decoding framework connects global and local 
+            emotional aspects, allowing nuanced shifts within a given emotional theme. The pseudo-siamese 
+            cross-perspective submodule is embedded to interact siamese fine-grained emotions across perspectives, 
+            further capturing subtle emotional fluctuations and amplifying authenticity of facial movements. 
+            Furthermore, to comprehensively evaluate our work, the CREMA-D dataset is reconstructed into a 3D 
+            emotional talking face dataset with the largest number of subjects, serving as a valuable experimental supplement.
+          </p>
+          <p>
+            Our experiments and user studies demonstrate that our approach outperforms state-of-the-art methods and exhibits 
+            superior emotional agility and expressiveness in facial movements.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section" id="Method">
+  <div class="container is-max-desktop content">
+
+    <h2 class="title">Background</h2>
+    <center><div><img src="./static/images/Background.png" ></center>
+    <p>
+      Examples of keyframe mapping between pitch, energy and facial emotional expression. 
+      The figure depicts the dynamic changes of pitch and energy at each frame, while visualizing 
+      the facial expression of keyframes within the sequence.
+    </p>
+    
+
+    <h2 class="title">Method</h2>
+    <center><div><img src="./static/images/framework.png" ></center>
+    <p>
+      Overview of the proposed SiaTalker. A coarse-to-fine dual granularity fusion decoding framework 
+      is designed to generate a series of 3D facial animations with richer dynamic emotions from speech. 
+      The design of the audio encoder follows wavLM. In coarse-grained stage, the global emotional type 
+      of the sequence and speech features are jointly decoded to establish the specific emotional themes 
+      of facial movements. In fine-grained stage, a pseudo-siamese network synchronously captures the temporal 
+      variations of facial emotion expression from distinct perspectives: pitch and energy. A cross-perspective 
+      interaction mechanism is emdedded to facilitate complementary interaction between emotional fluctuations 
+      of siamese branches.
+    </p>
+    
+  </div>
+  
+</section>
+
+<section class="section" id="Comparison">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Comparison</h2>
+    <center><div><img src="./static/images/results.png" ></center>
+    <p>
+      Visual comparison of sampled facial animations produced by different methods on CREMA-D-Test-B (top) 
+      and MEAD-Test-B (bottom). Four frames of the most facial animations with different speech content are 
+      displayed to assess lip synchronization of talking head.
+    </p>
+    
+  </div>
+  
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
+            project page.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
