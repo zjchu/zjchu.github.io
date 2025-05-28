@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EETalk</title>
+  <link rel="icon" href="github-fill.png" sizes="16x16"><!-- 图标-->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            EETalk: Expression Enhancement in Speech-Driven 3D Facial Animation
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" >Zhaojie Chu<sup>1</sup>,</span>
+            <span class="author-block" >Kailing Guo<sup>1</sup>,</span>
+            <span class="author-block" >Xiaofen Xing<sup>1</sup>,</span>
+            <span class="author-block" >Bolun Cai<sup>2</sup>,</span>
+            <span class="author-block" >Lin Wang<sup>1</sup>,</span>
+            <span class="author-block" >Xiangmin Xu<sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>South China University of Technology,</span>
+            <span class="author-block"><sup>2</sup>ByteDance Inc</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/dk-rYTbTGzI"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zjchu/AITalk"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</section class="hero teaser">
+      <!-- Paper video.--> 
+  <center>
+    <iframe width="900" height="450" src="https://www.youtube.com/embed/dk-rYTbTGzI?si=BiXDuT-NQrWrOYig" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+     picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </center>
+
+
+
+<section class="section" id="Facial Activity Intensity">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Speech-driven 3D facial animation aims to generate natural and expressive facial movements from speech input. Although 
+            significant progress has been made, existing methods still face challenges in generating realistic upper facial expressions 
+            and capturing subtle facial micro-expressions. Specifically, the motion differences across facial regions not only result 
+            in the modeling error in the lower face exceeding the vertex offset in the upper face but also exacerbate the 
+            regression-to-mean problem in the upper face. The facial micro-expressions are typically low in intensity and brief 
+            in duration, making them challenging to capture. Pre-trained speech feature extraction models have difficulty capturing 
+            fine-grained temporal dynamics for facial micro-expressions due to their architectural focus on modeling long-term dependencies.
+          </p>
+          <p>
+            In this work, we propose a novel framework, EETalk, to enhance the realism of facial expressions, which balances the movement 
+            modeling across different facial regions and captures fine-grain temporal dynamics from speech. To improve the realism of the 
+            upper facial expressions, we propose a novel disassemble-and-reassemble modeling strategy. This strategy constructs two 
+            independent facial motion representation spaces for the upper and lower faces, allowing for the capture of upper-face movements 
+            with weak amplitudes while preserving motion diversity. Then, we propose a Cross-Region Coordination Module to ensure the 
+            synchronization and coordination of the movements from the independent upper and lower faces. To effectively capture facial 
+            micro-expressions, we introduce fine-grained time-varying features to compensate for the coarse-grained temporal dynamics of speech 
+            features extracted by pre-trained models, enhancing the model's ability to generate fast and subtle facial micro-expressions.
+          </p>
+          <p>
+            Experimental results demonstrate that our approach significantly improves motion accuracy, expression consistency, and perceptual 
+            quality compared to existing methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section" id="Background">
+  <div class="container is-max-desktop content">
+    
+    <h2 class="title">Background</h2>
+    <center><div><img width="60%" src="./static/images/Fig1.png" ></center>
+    <p class="content has-text-justified">
+      (a) Left: Motion offset distances across different facial regions; Right: the error distance of the generated lower 
+      face vertex is larger than the motion offset of the upper face. (b) Speech features (e.g., extracted by WavLM) 
+      are coarse-grained in the temporal axis.
+    </p>
+    
+  </div>
+
+
+
+<section class="section" id="Method">
+  <div class="container is-max-desktop content">
+    
+    <h2 class="title">Method</h2>
+    <center><div><img src="./static/images/Framework.png" ></center>
+    <p class="content has-text-justified">
+      Overview of the proposed EETalk framework. The Composite Feature Extractor provides both semantic features 
+      \(\mathbf{F}_S\) from WavLM and time-varying features \(\mathbf{F}_T\) from discrete wavelet transform (DWT) 
+      to form composite features \(\mathbf{F}\), alleviating the imbalance of speech features in existing works. 
+      The Cross-Region Motion Decoder consists of two independently pre-trained motion spaces for the upper and lower face, 
+      ensuring comparable motion amplitudes in each space and preventing small upper face movements from being swamped. 
+      The pre-trained CRC module facilitates interaction between the upper and lower motion streams, ensuring 
+      synchronized and coherent facial animations. Style embedding \(\mathbf{S}\) is incorporated to control the animation 
+      style, resulting in expressive and natural 3D facial animations \(\mathbf{\hat{M}}\).
+    </p>
+    
+  </div>
+  
+</section>
+
+<section class="section" id="Comparison">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Comparison</h2>
+    <center><div><img src="./static/images/quali.png" ></center>
+    <p class="content has-text-justified">
+      Visual comparison of speech-driven facial animations generated by different methods on the BIWI-Test-B (top), 
+      Multiface-Test-B (middle), and VOCA-Test (bottom) datasets.
+    </p>
+    
+  </div>
+
+  <div class="container is-max-desktop content">
+    <h2 class="title">Comparison</h2>
+    <center><div><img src="./static/images/mean_std.png" ></center>
+    <p class="content has-text-justified">
+      Visualization of the temporal statistics of motion variations between adjacent frames across the BIWI-Test-B (top), 
+      Multiface-Test-B (middle), and VOCA-Test (bottom) datasets. The inter-frame \(L_2\) distance is used to compute the 
+      mean and standard deviation (Std) for each vertex, where a higher mean indicates more pronounced facial movements, 
+      and a higher standard deviation represents greater diversity in facial dynamics \cite{xing2023codetalker}.
+    </p>
+    
+  </div>
+  
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
+            project page.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
